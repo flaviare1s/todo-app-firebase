@@ -80,23 +80,23 @@ export const Todos = ({ mode, fetchTodos }) => {
           </div>
         ))}
         <div className={`h-12 flex justify-around items-center text-xs md:hidden ${mode === 'light' ? 'text-very-dark-grayish-blue' : 'text-dark-grayish-blue'}`}>
-          <span>{filteredTodos.length} items left</span>
-          <button onClick={clearCompleted}>Clear Completed</button>
+          <span className='text-dark-grayish-blue'>{filteredTodos.length} items left</span>
+          <button className={`text-dark-grayish-blue ${mode === 'light' ? ' hover:text-very-dark-grayish-blue' :  'hover:text-light-grayish-blue'}`}  onClick={clearCompleted}>Clear Completed</button>
         </div>
-        <div className={`hidden md:flex justify-around items-center text-sm font-bold h-12 ${mode === 'light' ? 'text-dark-grayish-blue' : 'text-very-dark-grayish-blue'}`}>
-          <span>{filteredTodos.length} items left</span>
+        <div className={`hidden md:flex justify-around items-center text-sm h-12 ${mode === 'light' ? 'text-dark-grayish-blue' : 'text-very-dark-grayish-blue'}`}>
+          <span className='text-dark-grayish-blue'>{filteredTodos.length} items left</span>
           <div className='flex justify-center gap-5'>
-            <button onClick={() => filterStatus('all')} className={`${filter === 'all' ? 'text-bright-blue' : ''} ${mode === 'light' ? ' hover:text-very-dark-grayish-blue' :  'hover:text-light-grayish-blue'}`}>All</button>
-            <button onClick={() => filterStatus('active')} className={`${filter === 'active' ? 'text-bright-blue' : '' } ${mode === 'light' ? ' hover:text-very-dark-grayish-blue' :  'hover:text-light-grayish-blue'}`}>Active</button>
-            <button onClick={() => filterStatus('completed')} className={`${filter === 'completed' ? 'text-bright-blue' : ''} ${mode === 'light' ? ' hover:text-very-dark-grayish-blue' :  'hover:text-light-grayish-blue'}`}>Completed</button>
+            <button onClick={() => filterStatus('all')} className={`font-bold ${filter === 'all' ? 'text-bright-blue' : ''} ${mode === 'light' ? ' hover:text-very-dark-grayish-blue' :  'hover:text-light-grayish-blue'}`}>All</button>
+            <button onClick={() => filterStatus('active')} className={`font-bold ${filter === 'active' ? 'text-bright-blue' : '' } ${mode === 'light' ? ' hover:text-very-dark-grayish-blue' :  'hover:text-light-grayish-blue'}`}>Active</button>
+            <button onClick={() => filterStatus('completed')} className={`font-bold ${filter === 'completed' ? 'text-bright-blue' : ''} ${mode === 'light' ? ' hover:text-very-dark-grayish-blue' :  'hover:text-light-grayish-blue'}`}>Completed</button>
           </div>
-          <button className={`${mode === 'light' ? ' hover:text-very-dark-grayish-blue' :  'hover:text-light-grayish-blue'}`} onClick={clearCompleted}>Clear Completed</button>
+          <button className={`text-dark-grayish-blue ${mode === 'light' ? ' hover:text-very-dark-grayish-blue' :  'hover:text-light-grayish-blue'}`} onClick={clearCompleted}>Clear Completed</button>
         </div>
       </section>
       <div className={`h-12 flex justify-evenly rounded-[5px] font-bold items-center text-xs md:text-base mt-4 shadow-sm md:hidden ${mode === 'light' ? 'bg-white text-dark-grayish-blue' : 'bg-dark-mode-input text-very-dark-grayish-blue'}`}>
-        <button onClick={() => filterStatus('all')} className={`${filter === 'all' ? 'text-bright-blue' : ''}`}>All</button>
-        <button onClick={() => filterStatus('active')} className={`${filter === 'active' ? 'text-bright-blue' : ''}`}>Active</button>
-        <button onClick={() => filterStatus('completed')} className={`${filter === 'completed' ? 'text-bright-blue' : ''}`}>Completed</button>
+        <button onClick={() => filterStatus('all')} className={`${filter === 'all' ? 'text-bright-blue' : ''} ${mode === 'light' ? ' hover:text-very-dark-grayish-blue' :  'hover:text-light-grayish-blue'}`}>All</button>
+        <button onClick={() => filterStatus('active')} className={`${filter === 'active' ? 'text-bright-blue' : ''} ${mode === 'light' ? ' hover:text-very-dark-grayish-blue' :  'hover:text-light-grayish-blue'}`}>Active</button>
+        <button onClick={() => filterStatus('completed')} className={`${filter === 'completed' ? 'text-bright-blue' : ''} ${mode === 'light' ? ' hover:text-very-dark-grayish-blue' :  'hover:text-light-grayish-blue'}`}>Completed</button>
       </div>
       <p className={`text-center text-sm md:text-base my-10 ${mode === 'light' ? 'text-dark-grayish-blue' : 'text-very-dark-grayish-blue'}`}>Drag and drop to reorder list</p>
     </>
