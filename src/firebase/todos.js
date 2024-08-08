@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, getDocs, query, where } from 'firebase/firestore'
+import { addDoc, collection, deleteDoc, doc, getDocs, query, updateDoc, where } from 'firebase/firestore'
 import { db } from './config'
 
 export const todosCol = collection(db, 'todos')
@@ -31,7 +31,24 @@ export async function filterTodos(status) {
   return todos
 }
 
+export async function updateTodo(id, status) {
+  const todoDoc = doc(todosCol, id)
+  await updateDoc(todoDoc, { status })
+}
+
 export async function deleteTodo(id) {
   const todoDoc = doc(todosCol, id)
-  await deleteTodo(todoDoc)
+  await deleteDoc(todoDoc)
 }
+
+export async function deleteCompleted() {
+  const delCompleted = query(todosCol, where('status', '==', 'completed'))
+  const snapshot = await getDocs(delCompleted)
+
+  const deletePromises = snapshot.docs.map(async (doc) => {
+    deleteDoc(doc.ref)
+    await Promise.all(deletePromises)
+  })
+}
+
+
