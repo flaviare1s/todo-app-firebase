@@ -61,7 +61,7 @@ export const Todos = ({ mode, fetchTodos }) => {
             <div className='flex items-center'>
               <button 
                 onClick={() => handleToggleStatus(todo.id, todo.status)} 
-                className={`h-5 w-5 border ${mode === 'light' ? 'border-light-grayish-blue' : 'border-very-dark-grayish-blue'} rounded-full relative ${todo.status === 'completed' ? 'bg-gradient-to-r from-linear-gradient-1 to-linear-gradient-2' : ''}`}
+                className={`h-5 w-5 border pr-4 ${mode === 'light' ? 'border-light-grayish-blue' : 'border-very-dark-grayish-blue'} rounded-full relative ${todo.status === 'completed' ? 'bg-gradient-to-r from-linear-gradient-1 to-linear-gradient-2' : ''}`}
               >
               </button>
               {todo.status === 'completed' && <img className='absolute p-1 pointer-events-none' src={checkIcon} alt="check" />}
